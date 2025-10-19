@@ -17,8 +17,8 @@ source_env_overrides() {
   source_if_exist "$HOME/.cargo/env"
 }
 
-# Plugin-related customisations that must happen before `antigen apply`
-source_antigen_overrides() {
+# Plugin-related customisations that should run before plugin manager finalisation
+source_plugin_overrides() {
   source_if_exist "$HOME/.local/etc/config.zsh"
   source_if_exist "$HOME/.local/etc/local.zsh"
   source_if_exist "$HOME/.zshrc.local"

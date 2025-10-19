@@ -54,6 +54,8 @@ esac
 export STARSHIP_LOG=error
 export COREPACK_ENABLE_STRICT=0
 export PATH=/Users/innei/.meteor:$PATH
+export DISABLE_AUTO_UPDATE=true
+export ZSH_DISABLE_COMPFIX=true
 
 # Rust toolchain
 export PATH=$HOME/.cargo/bin:$PATH
