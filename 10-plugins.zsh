@@ -42,7 +42,7 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 
 if typeset -f zinit >/dev/null 2>&1; then
   if [ -f "$ZSH/oh-my-zsh.sh" ]; then
-    zinit ice depth=1 wait'0' lucid atload'source_plugin_overrides'
+  
     zinit snippet "$ZSH/oh-my-zsh.sh"
   else
     source_plugin_overrides
