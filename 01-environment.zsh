@@ -57,6 +57,4 @@ export PATH=/Users/innei/.meteor:$PATH
 export DISABLE_AUTO_UPDATE=true
 export ZSH_DISABLE_COMPFIX=true
 
-# Rust toolchain
-export PATH=$HOME/.cargo/bin:$PATH
 source_env_overrides
