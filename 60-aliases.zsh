@@ -82,4 +82,8 @@ alias approve_and_merge_prs="for pr in \$( gh pr list | grep 'renovate' | cut -f
 
 alias md='frogmouth '
 # alias jq='jless '
-# alias end
+
+alias cc='claude --dangerously-skip-permissions'
+
+# GitHub Copilot CLI (default: autopilot mode)
+alias cop='copilot --mode autopilot'
