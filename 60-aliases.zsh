@@ -87,3 +87,11 @@ alias cc='claude --dangerously-skip-permissions'
 
 # GitHub Copilot CLI (default: autopilot mode)
 alias cop='copilot --mode autopilot'
+
+# Ghostty: copy local terminfo to remote on ssh (avoids xterm-ghostty missing)
+ssh() {
+  if [[ "$TERM" == "xterm-ghostty" ]]; then
+    infocmp -x 2>/dev/null | command ssh "$@" -- 'tic -x -' &>/dev/null
+  fi
+  command ssh "$@"
+}

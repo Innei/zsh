@@ -31,10 +31,6 @@ source_shell_addons() {
   source_if_exist "$HOME/.fzf.zsh"
   # tabtab source for packages; uninstall by removing this line
   source_if_exist "$HOME/.config/tabtab/zsh/__tabtab.zsh"
-  # bun completions (strip auto-generated compdef to avoid errors)
-  if [[ -s "$HOME/.bun/_bun" ]]; then
-    source <(sed '/^if ! command -v compinit/,/^compdef _bun bun$/d' "$HOME/.bun/_bun")
-    compdef _bun bun 2>/dev/null
-  fi
+  # bun completions handled in .zshrc via fpath
   source_if_exist "$HOME/.zshrc_local"
 }
