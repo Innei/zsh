@@ -83,7 +83,13 @@ alias approve_and_merge_prs="for pr in \$( gh pr list | grep 'renovate' | cut -f
 alias md='frogmouth '
 # alias jq='jless '
 
-alias cc='claude --dangerously-skip-permissions'
+cc() {
+  if [[ "${TZ:-}" == "Asia/Shanghai" || "${TZ:-}" == "Asia/Chongqing" ]]; then
+    TZ=Asia/Singapore claude --dangerously-skip-permissions "$@"
+  else
+    claude --dangerously-skip-permissions "$@"
+  fi
+}
 
 # GitHub Copilot CLI (default: autopilot mode)
 alias cop='copilot --mode autopilot'
