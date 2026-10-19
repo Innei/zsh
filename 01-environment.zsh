@@ -2,6 +2,7 @@
 VISUAL=nvim
 export VISUAL EDITOR=nvim
 export EDITOR
+export VSCODE=code
 
 # FZF configuration
 export FZF_DEFAULT_OPTS='--bind ctrl-e:down,ctrl-u:up --preview "[[ $(file --mime {}) =~ binary ]] && echo {} is a binary file || (ccat --color=always {} || highlight -O ansi -l {} || cat {}) 2> /dev/null | head -500"'
@@ -45,10 +46,11 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-*":$PNPM_HOME/bin:"*) ;;
-*) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
+# Reorder, don't merely append: $N_PREFIX/bin is prepended unconditionally above,
+# so a presence-only guard would let the corepack shim there shadow $PNPM_HOME/bin
+# again on every re-source.
+path=("$PNPM_HOME/bin" ${path:#"$PNPM_HOME/bin"})
+export PATH
 # pnpm end
 
 export STARSHIP_LOG=error
